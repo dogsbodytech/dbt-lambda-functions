@@ -5,7 +5,7 @@ jobs:
     name: build and deploy lambda
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: zip
         uses: montudor/action-zip@v0.1.0
         with:
@@ -16,5 +16,5 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: ${{ secrets.AWS_REGION }}
-          function_name: my-function
+          function_name: dbt-lambda-functions
           zip_file: bundle.zip
