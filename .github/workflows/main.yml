@@ -13,7 +13,7 @@ jobs:
       - name: Create Archive
         run: |
           ls -al
-          zip -v -r bundle.zip dbt-lambda-functions/* -x '*.git* LICENCE README.md'
+          zip -v -r bundle.zip ./ -x '*.git* LICENCE README.md'
       - name: Lambda
         uses: appleboy/lambda-action@master
         with:
