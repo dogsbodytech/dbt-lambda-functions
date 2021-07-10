@@ -6,10 +6,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: zip
-        uses: montudor/action-zip@v0.1.0
+      - name: Create Archive
+        uses: TheDoctor0/zip-release@0.4.2
         with:
-          args: zip -qq -r ./bundle.zip ./
+          filename: ../bundle.zip
+          path: ./
+          directory: dbt-lambda-functions
+          exclusions: '*.git* /LICENCE README.md'
       - name: default deploy
         uses: appleboy/lambda-action@master
         with:
