@@ -5,15 +5,9 @@ jobs:
     name: Deploy Lambda
     runs-on: ubuntu-latest
     steps:
-      - name: Install Dependencies
-        run: | 
-          sudo apt-get update
-          sudo apt-get install -y zip
       - uses: actions/checkout@v2
       - name: Create Archive
-        run: |
-          ls -al
-          zip -v -r bundle.zip ./ -x '*.git* LICENCE README.md'
+        run: zip -r bundle.zip ./ -x '*.git*' -x LICENSE -x README.md
       - name: Lambda
         uses: appleboy/lambda-action@master
         with:
