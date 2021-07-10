@@ -9,9 +9,7 @@ jobs:
       - name: Create Archive
         uses: TheDoctor0/zip-release@0.4.2
         with:
-          filename: ../bundle.zip
-          path: ./
-          directory: dbt-lambda-functions
+          filename: bundle.zip
           exclusions: '*.git* /LICENCE README.md'
       - name: default deploy
         uses: appleboy/lambda-action@master
