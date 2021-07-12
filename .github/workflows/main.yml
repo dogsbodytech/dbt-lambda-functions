@@ -8,6 +8,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Create Archive
         run: zip -r bundle.zip ./ -x '*.git*' -x LICENSE -x README.md
+      - name: Dan is lazy
+        run: echo "$AWS_ACCESS_KEY_ID - $SWS_REGION - $AWS_SECRET_ACCESS_KEY"
       - name: Lambda
         uses: appleboy/lambda-action@master
         with:
