@@ -8,13 +8,10 @@ jobs:
       - uses: actions/checkout@v2
       - name: Create Archive
         run: zip -r bundle.zip ./ -x '*.git*' -x LICENSE -x README.md
-      - name: Dan is lazy
-        run: echo "${{ secrets.AWS_ACCESS_KEY_ID }} - ${{ secrets.AWS_SECRET_ACCESS_KEY }} - ${{ secrets.AWS_REGION }}"
-      - name: Lambda
-        uses: appleboy/lambda-action@master
-        with:
-          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws_region: ${{ secrets.AWS_REGION }}
-          function_name: dbt-lambda-functions
-          zip_file: bundle.zip
+      - name: Push to Lambda
+        shell: bash
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ${{ secrets.AWS_REGION }}
+        run: aws lambda update-function-code --function-name dbt-lambda-functions --zip-file fileb://bundle.zip
