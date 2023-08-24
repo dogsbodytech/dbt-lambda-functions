@@ -12,6 +12,13 @@ jobs:
         uses: actions/checkout@v3
       - name: Create Archive
         run: cd func_${{ matrix.function }} && zip -r bundle.zip ./
+      - name: Create Lambda Function if not exist
+        shell: bash
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ${{ secrets.AWS_REGION }}
+        run: aws lambda get-function --function-name ${{ github.ref_name }}_${{ matrix.function }} || aws lambda create-function --function-name ${{ github.ref_name }}_${{ matrix.function }} --runtime python3.9 --role arn:aws:iam::532185013854:role/service-role/dbt-lambda-functions-role-6ijmfa4u
       - name: Push to Lambda
         shell: bash
         env:
