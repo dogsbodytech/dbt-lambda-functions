@@ -44,14 +44,14 @@ As of time of writing (Python 3.10 & 3.9) these are...
 
 
 ## To Do
-- Get .github/workflows/main.yml building (and deploying) seperate functions when updated
+- Get .github/workflows/main.yml building (and deploying) separate functions when updated
   - Remember to use the branch name as part of the function name
 - Re-write includes/Pushover.py for urllib3
 - It would be great if we could store and control the individual Lambda functions in AWS. e.g. 
   - Allow us to control what runtime is used from this repo
   - Create the Lambda function in AWS if it doesn't exist
   - Connect the Lambda function to the API Gateway if not connected
-- It would be great if we just deployed the fuctions that were updated (or all if the `includes` are)
+- It would be great if we just deployed the functions that were updated (or all if the `includes` are)
 
 
 
