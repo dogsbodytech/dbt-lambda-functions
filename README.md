@@ -12,7 +12,11 @@ Each Lambda function exists in it's own subdirectory beginning `func_`
 Shared (library) files are in the `includes` subdirectory. This folder is automatically included in each function.
 
 ### On commit
-GitHub Actions do a thing....
+GitHub Actions deploy all the functions to AWS Lambda
+
+The Lambda function will be created if it doesn't already exist
+
+AWS Lambda functions are named `dlf-<branch>_<folder (minus func_)>` `dlf-dev_Hello_World`
 
 
 ## Lambda Functions
@@ -44,18 +48,12 @@ As of time of writing (Python 3.10 & 3.9) these are...
 
 
 ## To Do
-- Get .github/workflows/main.yml building (and deploying) separate functions when updated
-  - Remember to use the branch name as part of the function name
 - Re-write includes/Pushover.py for urllib3
-- It would be great if we could store and control the individual Lambda functions in AWS. e.g. 
-  - Allow us to control what runtime is used from this repo
-  - Create the Lambda function in AWS if it doesn't exist
+- Write func_Sirportly_Pushover :-p
+- GitHub Actions (.github/workflows/main.yml)
+  - Include the includes dir in the zip
+  - Somehow pull the Lambda Runtime from the repo (and update it if it changes)
+  - Iterate over all folders as opposed to using the matrix function
   - Connect the Lambda function to the API Gateway if not connected
-- It would be great if we just deployed the functions that were updated (or all if the `includes` are)
-
-
-
-
-
-
+  - It would be great if we just deployed the functions that were updated (or all if the `includes` are)
 
