@@ -4,14 +4,18 @@ jobs:
   deploy_source:
     name: Deploy Lambda
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        function: ["Hello_World","Sirportly_Pushover"]
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v3
       - name: Create Archive
-        run: zip -r bundle.zip ./ -x '*.git*' -x LICENSE -x README.md
+        run: cd func_${{ matrix.function }} && zip -r bundle.zip ./
       - name: Push to Lambda
         shell: bash
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: ${{ secrets.AWS_REGION }}
-        run: aws lambda update-function-code --function-name dbt-lambda-functions --zip-file fileb://bundle.zip
+        run: aws lambda update-function-code --function-name ${{ github.ref_name }}_${{ matrix.function }} --zip-file fileb://func_${{ matrix.function }}/bundle.zip
