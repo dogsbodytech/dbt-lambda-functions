@@ -1,7 +1,5 @@
 name: Deploy to Lambda
 on: [push]
-env:
-  lfunction: dlf-${{ github.ref_name }}_${{ matrix.function }}
 jobs:
   deploy_source:
     name: Deploy Lambda
@@ -27,4 +25,4 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: ${{ secrets.AWS_REGION }}
-        run: aws lambda update-function-code --function-name $lfunction --zip-file fileb://func_${{ matrix.function }}/bundle.zip
+        run: aws lambda update-function-code --function-name dlf-${{ github.ref_name }}_${{ matrix.function }} --zip-file fileb://func_${{ matrix.function }}/bundle.zip
