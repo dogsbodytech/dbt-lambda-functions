@@ -16,7 +16,7 @@ GitHub Actions deploy all the functions to AWS Lambda
 
 The Lambda function will be created if it doesn't already exist
 
-AWS Lambda functions are named `dlf-<branch>_<folder (minus func_)>` `dlf-dev_Hello_World`
+AWS Lambda functions are named `dlf-<branch>_<folder (minus func_)>` e.g. `dlf-dev_Hello_World`
 
 
 ## Lambda Functions
@@ -49,7 +49,7 @@ As of time of writing (Python 3.10 & 3.9) these are...
 
 ## To Do
 - Re-write includes/Pushover.py for urllib3
-- Write func_Sirportly_Pushover :-p
+- Write func_Sirportly_Pushover/lambda_function.py :-p
 - GitHub Actions (.github/workflows/main.yml)
   - Include the includes dir in the zip
   - Somehow pull the Lambda Runtime from the repo (and update it if it changes)
