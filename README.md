@@ -11,6 +11,11 @@ Each Lambda function exists in it's own subdirectory beginning `func_`
 
 Shared (library) files are in the `includes` subdirectory. This folder is automatically included in each function.
 
+### Branches
+All development should be done in the `dev` branch ;-)
+
+Once you have tested it (in AWS) then it can be moved to the XXXX branch and re-deployed
+
 ### On commit
 GitHub Actions deploy all the functions to AWS Lambda
 
@@ -19,7 +24,7 @@ The Lambda function will be created if it doesn't already exist
 AWS Lambda functions are named `dlf-<branch>_<folder (minus func_)>` e.g. `dlf-dev_Hello_World`
 
 
-## Lambda Functions
+## Current Lambda Functions
 
 ### func_Sirportly_Pushover
 TBD
@@ -28,7 +33,13 @@ TBD
 A very basic "Hello World" function that can be used as a test/debug/template function
 
 
-## Coding
+## Create New Lambda Functions
+- Create lambda_function.py in a new subfolder begining with `func_`
+- When you are happy with your code add to the Matrix in /.github/workflows/main.yml
+- When pushed to GitHub it should automatically create a Lambda Function in our AWS account
+- You now need to go set it up in the API gateway...
+
+### Coding
 We try not to use modules that are not part of the standard Python standard library (so far so good).
 
 Some additional modules are included by AWS which can be used.
