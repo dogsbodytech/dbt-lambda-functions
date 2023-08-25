@@ -51,7 +51,6 @@ As of time of writing (Python 3.10 & 3.9) these are...
 - Re-write includes/Pushover.py for urllib3
 - Write func_Sirportly_Pushover/lambda_function.py :-p
 - GitHub Actions (.github/workflows/main.yml)
-  - Include the includes dir in the zip
   - Somehow pull the Lambda Runtime from the repo (and update it if it changes)
   - Iterate over all folders as opposed to using the matrix function
   - Connect the Lambda function to the API Gateway if not connected
