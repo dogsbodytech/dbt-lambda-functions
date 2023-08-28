@@ -59,7 +59,8 @@ As of time of writing (Python 3.10 & 3.9) these are...
 
 
 ## To Do
-- Re-write includes/Pushover.py for urllib3
+- Re-write includes/Pushover.py for urllib or urllib3
+- Work out how we are going to store secrets that we deploy such as app, user and group keys.
 - Write func_Sirportly_Pushover/lambda_function.py :-p
 - GitHub Actions (.github/workflows/main.yml)
   - Somehow pull the Lambda Runtime from the repo (and update it if it changes)
