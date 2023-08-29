@@ -59,9 +59,16 @@ As of time of writing (Python 3.10 & 3.9) these are...
 
 
 ## To Do
+Phase One
+- Manually setup the "API Gateway" for "Hello_World" funtion
 - Re-write includes/Pushover.py for urllib or urllib3
 - Work out how we are going to store secrets that we deploy such as app, user and group keys.
 - Write func_Sirportly_Pushover/lambda_function.py :-p
+- Manually setup the "API Gateway" for "Sirportly_Pushover" funtion
+- Decide if we are using "v1" or "v3" for our production branch
+- Create the production branch and setup manually in the AWS API Gateway
+
+Phase Two
 - GitHub Actions (.github/workflows/main.yml)
   - Somehow pull the Lambda Runtime from the repo (and update it if it changes)
   - Iterate over all folders as opposed to using the matrix function
