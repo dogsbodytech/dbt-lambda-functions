@@ -1,6 +1,6 @@
 import json
 import boto3
-from urllib import unquote
+from urllib.parse import unquote
 
 from Pushover import get_pushover_user_key, send_pushover
 
