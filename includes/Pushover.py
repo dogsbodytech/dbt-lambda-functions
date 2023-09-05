@@ -14,7 +14,7 @@ def get_pushover_user_key(username: str) -> str:
 	user_keys = ssm.get_parameter(Name='PushoverUsers',WithDecryption=False)['Parameter']['Value']
 	return json.loads(user_keys)[user]
 
-def send_pushover(token: str, user_key: str, message: str, priority = 0: int) -> bool:
+def send_pushover(token: str, user_key: str, message: str, priority: int = 0) -> bool:
 	"""
 	Send pushover _message_ to _user_.
 
