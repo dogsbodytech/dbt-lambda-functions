@@ -3,16 +3,6 @@
 
 import http.client
 import urllib
-import boto3
-
-ssm = boto3.client('ssm')
-
-def get_pushover_user_key(username: str) -> str:
-	"""
-	Fetch pushover user key from SSM Parameter Store.
-	"""
-	user_keys = ssm.get_parameter(Name='PushoverUsers',WithDecryption=False)['Parameter']['Value']
-	return json.loads(user_keys)[user]
 
 def send_pushover(token: str, user_key: str, message: str, priority: int = 0) -> bool:
 	"""
