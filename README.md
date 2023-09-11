@@ -40,6 +40,8 @@ A very basic "Hello World" function that can be used as a test/debug/template fu
 - You now need to go set it up in the API gateway...
 
 ### Coding
+To include the modules from the includes directory you probbaly want to run `export PYTHONPATH=./:./includes/` from within the repo.
+
 We try not to use modules that are not part of the standard Python standard library (so far so good).
 
 Some additional modules are included by AWS which can be used.
