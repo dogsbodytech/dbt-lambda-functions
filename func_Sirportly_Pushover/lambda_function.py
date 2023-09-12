@@ -26,7 +26,7 @@ def lambda_handler(event, context):
     message = f'Update on: {subject}, Ticket: {url}'
 
     sirportly_key = get_ssm_parameter('SirportlyKey')
-    user_keys     = get_ssm_parameter('PushoverUsers','False')
+    user_keys     = get_ssm_parameter('PushoverUsers', False)
     user_key      = json.loads(user_keys)[user]
 
     params = {'token': sirportly_key, 'user': user_key, 'message': message}

@@ -3,7 +3,7 @@
 import boto3
 from botocore.exceptions import ClientError
 
-def get_ssm_parameter(name: str, decryption: str = True) -> str:
+def get_ssm_parameter(name: str, decryption: bool = True) -> str:
     """
     Get parameter from AWS Systems Manager SSM Parameter Store.
     """
