@@ -35,15 +35,6 @@ def lambda_handler(event, context):
     if ticket_data['user'] == None:
         return(json.dumps({'Message': 'Invalid data'}))
 
-    #sirportly_key = get_ssm_parameter('SirportlyKey')
-    #user_data = ticket_data['user']
-    #user = user_data['username']
-    #subject = ticket_data['subject'].replace('+', ' ')
-    #url = ticket_url + ticket_data['reference']
-    #message = f'Update on: {subject}, Ticket: {url}'
-    #user_keys     = get_ssm_parameter('PushoverUsers', False)
-    #user_key      = json.loads(user_keys)[user]
-
     ticket_url = "https://support.dogsbody.com/staff/tickets/"
     sirportly_key = get_ssm_parameter('SirportlyKey')
     user_key = json.loads(get_ssm_parameter('PushoverUsers', False))[ticket_data['user']['username']]
