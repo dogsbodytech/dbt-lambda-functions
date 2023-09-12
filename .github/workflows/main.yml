@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v3
       - name: Set variables
         run: |
-          echo "RUNTIME=python3.10" >> $GITHUB_ENV
+          echo "RUNTIME=python3.11" >> $GITHUB_ENV
           echo "RUNROLE=arn:aws:iam::532185013854:role/dbt-lambda-functions-runtime" >> $GITHUB_ENV
           echo "DIR=func_${{ matrix.function }}" >> $GITHUB_ENV
           echo "ZIPFILE=func_${{ matrix.function }}.zip" >> $GITHUB_ENV
