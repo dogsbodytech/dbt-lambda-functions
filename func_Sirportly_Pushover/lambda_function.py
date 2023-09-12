@@ -35,7 +35,7 @@ def lambda_handler(event, context):
     params = {'token': sirportly_key, 'user': user_key, 'message': message}
 
     # send_pushover(token: str, user_key: str, message: str, priority = 0: int)
-    if send_pushover(sirportly_key, user_keys, message) == True:
+    if send_pushover(sirportly_key, user_key, message) == True:
         print('Pushover Sent!')
         return(json.dumps({'Message': 'Pushover sent'}))
     else:
