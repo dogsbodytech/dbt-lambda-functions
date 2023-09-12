@@ -9,7 +9,7 @@ We have one repo for all Lambda functions. We did this for simplicity and to sav
 
 Each Lambda function exists in it's own subdirectory beginning `func_`
 
-Shared (library) files are in the `includes` subdirectory. This folder is automatically included in each function.
+Shared (library) files are in the `includes` subdirectory. This folder is automatically included in each function. Make sure filenames don't clash.
 
 ### Branches
 All development should be done in the `dev` branch ;-)
@@ -32,7 +32,6 @@ TBD
 ### func_Hello_World
 A very basic "Hello World" function that can be used as a test/debug/template function
 
-
 ## Create New Lambda Functions
 - Create lambda_function.py in a new subfolder begining with `func_`
 - When you are happy with your code add to the Matrix in /.github/workflows/main.yml
@@ -40,8 +39,6 @@ A very basic "Hello World" function that can be used as a test/debug/template fu
 - You now need to go set it up in the API gateway...
 
 ### Coding
-To include the modules from the includes directory you probbaly want to run `export PYTHONPATH=./:./includes/` from within the repo.
-
 We try not to use modules that are not part of the standard Python standard library (so far so good).
 
 Some additional modules are included by AWS which can be used.
@@ -64,7 +61,6 @@ As of time of writing (Python 3.10 & 3.9) these are...
 Phase One
 - Manually setup the "API Gateway" for "Hello_World" funtion
 - Re-write includes/Pushover.py for urllib or urllib3
-- Work out how we are going to store secrets that we deploy such as app, user and group keys.
 - Write func_Sirportly_Pushover/lambda_function.py :-p
 - Manually setup the "API Gateway" for "Sirportly_Pushover" funtion
 - Decide if we are using "v1" or "v3" for our production branch
@@ -72,7 +68,7 @@ Phase One
 
 Phase Two
 - GitHub Actions (.github/workflows/main.yml)
-  - Somehow pull the Lambda Runtime from the repo (and update it if it changes)
+  - Somehow pull the Lambda Runtime from each function (and update it if it changes)
   - Iterate over all folders as opposed to using the matrix function
   - Connect the Lambda function to the API Gateway if not connected
   - It would be great if we just deployed the functions that were updated (or all if the `includes` are)
