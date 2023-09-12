@@ -4,6 +4,8 @@ from urllib.parse import unquote
 from Pushover import send_pushover
 from AWS_ParameterStore import get_ssm_parameter
 
+ticket_url = "https://support.dogsbody.com/staff/tickets/"
+
 def lambda_handler(event, context):
     # Sanitise input
     if 'ticket' not in event:
@@ -12,7 +14,8 @@ def lambda_handler(event, context):
     try:
         ticket_data = json.loads(unquote(event['ticket']))
     except:
-        ticket_data = json.loads(event['ticket'])
+	# Input is already in JSON format
+        ticket_data = event['ticket']
 
     # Sirportly sends two requests, one with no valid user.
     if ticket_data['user'] == None:
