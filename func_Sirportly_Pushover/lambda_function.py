@@ -9,7 +9,10 @@ def lambda_handler(event, context):
     if 'ticket' not in event:
         return(json.dumps({'Message': 'Invalid data'}))
 
-    ticket_data = json.loads(unquote(event['ticket']))
+    try:
+        ticket_data = json.loads(unquote(event['ticket']))
+    except:
+        ticket_data = json.loads(event['ticket'])
 
     # Sirportly sends two requests, one with no valid user.
     if ticket_data['user'] == None:
