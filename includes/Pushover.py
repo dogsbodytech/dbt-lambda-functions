@@ -24,8 +24,7 @@ def send_pushover(token: str, user_key: str, message: str, priority: int = 0) ->
 		# Confirm success
 		assert result.code == 200
 	except:
-		print('Error occured sending pushover with the following params:')
-		print(f'message: {message}')
+		print(f'Error: Pushover failed with following params:\n{token},\n{user_key},\n{message},\n{priority}')
 		return False
 	return True
 
