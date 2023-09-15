@@ -59,6 +59,8 @@ As of time of writing (Python 3.10 & 3.9) these are...
 
 ## To Do
 Phase One
+- Document the creation of the API Gateway
+- Document the creation of the Roles?
 - Manually setup the "API Gateway" for "Hello_World" funtion
 - Re-write includes/Pushover.py for urllib or urllib3
 - Write func_Sirportly_Pushover/lambda_function.py :-p
@@ -72,4 +74,7 @@ Phase Two
   - Iterate over all folders as opposed to using the matrix function
   - Connect the Lambda function to the API Gateway if not connected
   - It would be great if we just deployed the functions that were updated (or all if the `includes` are)
+
+Phase Three
+- Seperate IAM roles for each Lambda function that just gives it the AWS access that it needs
 
