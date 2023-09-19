@@ -4,17 +4,26 @@ This repo contains the Lambda functions used by Dogsbody Technology Ltd.
 Most of these functions act as simple webhooks to add aditional functionality that isn't offered natively.
 
 
+## Current Lambda Functions
+
+### func_Sirportly_Pushover
+TBD
+
+### func_Hello_World
+A very basic "Hello World" function that can be used as a test/debug/template function
+
+
 ## Repo
 We have one repo for all Lambda functions. We did this for simplicity and to save duplication of code.
 
 Each Lambda function exists in it's own subdirectory beginning `func_`
 
-Shared (library) files are in the `includes` subdirectory. This folder is automatically included in each function. Make sure filenames don't clash.
+Shared (library) files are in the `includes` subdirectory. This folder is automatically included in each function. *Make sure filenames don't clash*.
 
 ### Branches
 All development should be done in the `dev` branch ;-)
 
-Once you have tested it (in AWS) then it can be moved to the XXXX branch and re-deployed
+Once you have tested it (in AWS) then it can be moved to a production branch and re-deployed
 
 ### On commit
 GitHub Actions deploy all the functions to AWS Lambda
@@ -24,13 +33,9 @@ The Lambda function will be created if it doesn't already exist
 AWS Lambda functions are named `dlf-<branch>_<folder (minus func_)>` e.g. `dlf-dev_Hello_World`
 
 
-## Current Lambda Functions
+## Initial Configuration / Requirements
+These steps should only need to be done once and by hand so they can be found in [[INSTALL.md]]
 
-### func_Sirportly_Pushover
-TBD
-
-### func_Hello_World
-A very basic "Hello World" function that can be used as a test/debug/template function
 
 ## Create New Lambda Functions
 - Create lambda_function.py in a new subfolder begining with `func_`
