@@ -34,7 +34,7 @@ AWS Lambda functions are named `dlf-<branch>_<folder (minus func_)>` e.g. `dlf-d
 
 
 ## Initial Configuration / Requirements
-These steps should only need to be done once and by hand so they can be found in [[INSTALL.md]]
+These steps should only need to be done once and by hand so they can be found in [INSTALL.md](INSTALL.md)
 
 
 ## Create New Lambda Functions
