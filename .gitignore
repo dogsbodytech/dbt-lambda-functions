@@ -1,5 +1,4 @@
 *.swp
 *.zip
 __pycache__
-.terraform.lock.hcl
 .terraform
